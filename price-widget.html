@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      (function (w, d, s, l, c) {
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s);
+        j.async = true;
+        j.id = "dyorexScript";
+        j.src = "dyorex-price-widget.js";
+        j.setAttribute("data-currency", c ? c : "");
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dyorex", "USDT");
+    </script>
+  </head>
+  <body>
+    <div style="width: 100%; height: 100%">
+      <div id="dyorex-widget"></div>
+    </div>
+  </body>
+</html>
