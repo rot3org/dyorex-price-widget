@@ -19,12 +19,13 @@ function widgetCreater() {
 
 function createLogoWrapper() {
     let logoWrapper = document.createElement('a');
-    logoWrapper.setAttribute('style', 'display: flex; justify-content: center; align-items: center; width: 120px; height: 65px; background: #080e23; padding: 0px 5px; position: relative; overflow: hidden;')
+    logoWrapper.setAttribute('style', 'display: flex; justify-content: center; align-items: center; width: 120px; height: 65px; background: #ffff; padding: 0px 10px; position: relative; overflow: hidden;')
     logoWrapper.setAttribute('target', '_blank');
     logoWrapper.setAttribute('href', 'https://www.dyorex.com')
     let logoImage = document.createElement('img');
-    logoImage.setAttribute('src', 'https://www.dyorex.com/assets/images/logo/logo_light.svg');
+    logoImage.setAttribute('src', './logo.gif');
     logoImage.setAttribute('alt', 'dyorex');
+    logoImage.setAttribute('style', 'width:100%');
     logoWrapper.appendChild(logoImage);
     return logoWrapper
 }
@@ -40,18 +41,51 @@ async function createPriceContainer() {
 
 async function createPriceWrapper() {
     let priceWrapper = document.createElement('div');
-    priceWrapper.setAttribute('style', 'position: relative; width: 100%;height: 100%;box-sizing: content-box;display: flex;z-index: 1;transition-property: transform,-webkit-transform;transition-duration: 6000ms;')
+    priceWrapper.setAttribute('style', 'position: relative; width: 100%;height: 100%;box-sizing: content-box;display: flex;z-index: 1;')
+    let banner = await createBanner();
+    priceWrapper.appendChild(banner);
     let cells = await addPriceCell();
-    console.log(cells)
     for (const cell of cells) {
         priceWrapper.appendChild(cell)
     }
     let wrapperAnimation = [
         {transform : 'translate3d(-1500px, 0px, 0px)'}
     ]
-    let wrapperTiming = { duration : 16000, iterations : 1}
+    let wrapperTiming = { duration : 40000, delay: 3000 ,iterations : Infinity }
+    
     priceWrapper.animate(wrapperAnimation,wrapperTiming)
     return priceWrapper;
+}
+
+async function createBanner() {
+    let bannerWrapper = document.createElement('div');
+    bannerWrapper.setAttribute('style', 'box-sizing: border-box;flex-shrink: 0;height: 100%;position: relative;width: auto;margin: 0 5px 0 0;')
+    let bannerLink = document.createElement('a');
+    bannerLink.setAttribute('href', 'https://dyorex.com')
+    bannerLink.setAttribute('target', '_blank')
+    bannerLink.setAttribute('style', 'text-decoration: none;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;position: relative;height: 100%;color: #000;background: #ffff;')
+    let bannerText = document.createElement('p')
+    bannerText.setAttribute('style', 'margin: 0;padding: 0px 15px;border: 0;text-align: center;font-size: 16px;font-weight: 600;color: #000;')
+    bannerText.textContent = 'HEMEN ÜYE OL, İLK YATIRIMINA';
+
+    let text1 = document.createElement('span');
+    text1.textContent = " 250 ₺'ye VARAN"
+    bannerText.appendChild(text1)
+    text1.setAttribute('style', 'color: #d21d2b; font-size:20px;');
+
+    let text2 = document.createElement('span');
+    text2.textContent = " ÖDÜLLERİ KAZAN"
+    bannerText.appendChild(text2)
+    text2.setAttribute('style', 'color: #000; margin-right:5px;');
+
+    let text3 = document.createElement('span');
+    text3.textContent = " HEMEN KATIL"
+    bannerText.appendChild(text3)
+    text3.setAttribute('style', 'color: #fff; background: #08962d; padding: 10px;border-radius: 5px;');
+
+    bannerLink.appendChild(bannerText)
+    bannerWrapper.appendChild(bannerLink);
+    return bannerWrapper
 }
 
 async function addPriceCell() {
@@ -67,10 +101,11 @@ async function addPriceCell() {
 }
 
 function createCell(name, price, change) {
+    let pairLogo = name.includes('USDT') ? '$' : '₺'
     name = name.replace('USDT', '').replace('TRY', '')
     let cell = document.createElement('div');
     cell.setAttribute('style', ' box-sizing: border-box; padding: 0; flex-shrink: 0; height: 100%; position: relative; transition-property: transform,-webkit-transform; width: auto; margin: 0 5px 0 0;')
-    let cellInner = document.createElement('a'); cellInner.setAttribute('style', 'box-sizing: border-box; margin: 0; text-decoration: none; display: flex; justify-content: center; align-items: flex-start; flex-direction: column; position: relative; height: 65px; padding: 10px 25px 10px 10px; background-color: #fff; color: #000;')
+    let cellInner = document.createElement('a'); cellInner.setAttribute('style', 'box-sizing: border-box; margin: 0; text-decoration: none; display: flex; justify-content: center; align-items: flex-start; flex-direction: column; position: relative; height: 65px; padding: 10px 15px 10px 15px; background-color: #fff; color: #000;')
     
     let nameSpan = document.createElement('span');
     nameSpan.setAttribute('style', 'color: #000; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: center; padding: 2px 0; font-size: 12px;');
@@ -84,11 +119,12 @@ function createCell(name, price, change) {
     cellInner.appendChild(nameSpan);
     
     let priceSpan = document.createElement('span');
-    priceSpan.textContent = price;
+    priceSpan.textContent = `${pairLogo} ${price}`;
+    priceSpan.setAttribute('style', `color: ${parseFloat(change) > 0 ? '#279143' : '#dd3944'}; font-weight:700;`)
     cellInner.appendChild(priceSpan);
     
     let changeSpan = document.createElement('span');
-    changeSpan.textContent = change;
+    changeSpan.textContent = `${change.toFixed(2)}%`;
     cellInner.appendChild(changeSpan);
     
     cell.appendChild(cellInner);
@@ -105,3 +141,4 @@ async function getTickerPrices() {
     const result = await response.json();
     return result.data;
 }
+
