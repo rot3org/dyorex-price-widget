@@ -24,7 +24,7 @@ function createLogoWrapper() {
     logoWrapper.setAttribute('target', '_blank');
     logoWrapper.setAttribute('href', 'https://www.dyorex.com')
     let logoImage = document.createElement('img');
-    logoImage.setAttribute('src', './logo.gif');
+    logoImage.setAttribute('src', 'https://dyorex-assets.s3.amazonaws.com/logo.gif');
     logoImage.setAttribute('alt', 'dyorex');
     logoImage.setAttribute('style', 'width:100%');
     logoWrapper.appendChild(logoImage);

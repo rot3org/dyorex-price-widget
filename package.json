@@ -1,0 +1,22 @@
+{
+  "name": "dyorex-price-widget",
+  "version": "1.0.0",
+  "description": "dyorex price widget",
+  "main": "dyorex-price-widget.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rot3org/dyorex-price-widget.git"
+  },
+  "keywords": [
+    "dyorex"
+  ],
+  "author": "0@altugoren.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rot3org/dyorex-price-widget/issues"
+  },
+  "homepage": "https://github.com/rot3org/dyorex-price-widget#readme"
+}
