@@ -6,15 +6,17 @@
     <title>Document</title>
 
     <script>
-      (function (w, d, s, l, c) {
+      (function (w, d, s, l, c, e, u) {
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s);
         j.async = true;
         j.id = "dyorexScript";
         j.src = "dyorex-price-widget.js";
         j.setAttribute("data-currency", c ? c : "");
+        j.setAttribute("data-exclude", e ? e : "");
+        j.setAttribute("data-utm", u ? u : "")
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dyorex", "USDT");
+      })(window, document, "script", "dyorex", "USDT", "BTTCUSDT", "www.mardinlife.com,Banner,Price+Banner");
     </script>
   </head>
   <body>
