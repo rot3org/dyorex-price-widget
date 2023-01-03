@@ -123,7 +123,7 @@ function createCell(name, price, change) {
     let cell = document.createElement('div');
     cell.setAttribute('style', 'width:120px; box-sizing: border-box; padding: 0; flex-shrink: 0; height: 100%; position: relative; transition-property: transform,-webkit-transform; margin: 0 5px 0 0;')
     let cellInner = document.createElement('a'); cellInner.setAttribute('style', 'box-sizing: border-box; margin: 0; text-decoration: none; display: flex; justify-content: center; align-items: flex-start; flex-direction: column; position: relative; height: 65px; padding: 10px 15px 10px 15px; background-color: #fff; color: #000;')
-    
+    cellInner.setAttribute('href', 'https://www.dyorex.com/markets')
     let nameSpan = document.createElement('span');
     nameSpan.setAttribute('style', 'color: #000; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: center; padding: 2px 0; font-size: 16px; font-weight:700; line-height: 18px;');
     nameSpan.textContent = name;

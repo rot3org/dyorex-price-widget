@@ -1,6 +1,6 @@
 {
   "name": "dyorex-price-widget",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "dyorex price widget",
   "main": "dyorex-price-widget.js",
   "scripts": {
