@@ -125,7 +125,7 @@ function createCell(name, price, change) {
     let cellInner = document.createElement('a'); cellInner.setAttribute('style', 'box-sizing: border-box; margin: 0; text-decoration: none; display: flex; justify-content: center; align-items: flex-start; flex-direction: column; position: relative; height: 65px; padding: 10px 15px 10px 15px; background-color: #fff; color: #000;')
     
     let nameSpan = document.createElement('span');
-    nameSpan.setAttribute('style', 'color: #000; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: center; padding: 2px 0; font-size: 16px; font-weight:700;');
+    nameSpan.setAttribute('style', 'color: #000; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: center; padding: 2px 0; font-size: 16px; font-weight:700; line-height: 18px;');
     nameSpan.textContent = name;
     let logoWrapper = document.createElement('i');
     logoWrapper.setAttribute('style', ' box-sizing: border-box; width: 18px; height: 18px; display: block; margin: 0 4px 0 0;')
@@ -137,12 +137,12 @@ function createCell(name, price, change) {
     
     let priceSpan = document.createElement('span');
     priceSpan.textContent = `${pairLogo} ${price}`;
-    priceSpan.setAttribute('style', `color: ${parseFloat(change) > 0 ? '#279143' : '#dd3944'}; font-weight:700; font-size:16px;`)
+    priceSpan.setAttribute('style', `color: ${parseFloat(change) > 0 ? '#279143' : '#dd3944'}; font-weight:700; font-size:16px;line-height: 18px;`)
     cellInner.appendChild(priceSpan);
     
     let changeSpan = document.createElement('span');
     changeSpan.textContent = `${change.toFixed(2)}%`;
-    changeSpan.setAttribute('style', 'font-size:14px;')
+    changeSpan.setAttribute('style', 'font-size:14px; line-height: 16px;')
     cellInner.appendChild(changeSpan);
     
     cell.appendChild(cellInner);
