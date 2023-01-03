@@ -16,5 +16,5 @@ Sitenizin headır kısmına aşağıda yer alan scripti yerleştiriniz.
 
 daha sonra body kısmında hangi alana gelmesini istiyorsanız o alana aşağıdaki html elementini yerleştiriniz.
 
-<div id="dyorex-widget"></div>
+    <div id="dyorex-widget"></div>
 

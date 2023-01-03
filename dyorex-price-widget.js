@@ -137,7 +137,7 @@ function createCell(name, price, change) {
     
     let priceSpan = document.createElement('span');
     priceSpan.textContent = `${pairLogo} ${price}`;
-    priceSpan.setAttribute('style', `color: ${parseFloat(change) > 0 ? '#279143' : '#dd3944'}; font-weight:700; font-size:16px;line-height: 18px;`)
+    priceSpan.setAttribute('style', `color: ${parseFloat(change) > 0 ? '#279143' : '#dd3944'}; font-weight:700; font-size:16px;line-height: 18px; white-space: nowrap`)
     cellInner.appendChild(priceSpan);
     
     let changeSpan = document.createElement('span');
