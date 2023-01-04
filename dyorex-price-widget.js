@@ -19,8 +19,9 @@ function widgetCreater() {
 }
 
 function createLogoWrapper() {
+
     let logoWrapper = document.createElement('a');
-    logoWrapper.setAttribute('style', 'display: flex; justify-content: center; align-items: center; width: 120px; height: 65px; background: #ffff; padding: 0px 10px; position: relative; overflow: hidden;')
+    logoWrapper.setAttribute('style', `display: flex; justify-content: center; align-items: center; width: 120px; height: 65px; background: #ffff; padding: 0px 10px; position: relative; overflow: hidden;`)
     logoWrapper.setAttribute('target', '_blank');
     logoWrapper.setAttribute('href', 'https://www.dyorex.com')
     let logoImage = document.createElement('img');
@@ -77,9 +78,11 @@ async function createBanner() {
     let bannerLink = document.createElement('a');
     let options = document.getElementById('dyorexScript');
     let utmParams = options.getAttribute('data-utm').split(',');
+    let wstyle = options.getAttribute('data-wstyle').split(',');
+
     bannerLink.setAttribute('href', `https://dyorex.com/?utm_source=${utmParams[0]}&utm_medium=${utmParams[1]}&utm_campaign=${utmParams[2]}`);
     bannerLink.setAttribute('target', '_blank')
-    bannerLink.setAttribute('style', 'text-decoration: none;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;position: relative;height: 100%;color: #000;background: #ffff;')
+    bannerLink.setAttribute('style', `text-decoration: none;display: flex;justify-content: center;align-items: flex-start;flex-direction: column;position: relative;height: 100%;color: #000;background: ${wstyle[0] ? wstyle[0] : '#ffff'};`)
     let bannerText = document.createElement('p')
     bannerText.setAttribute('style', 'margin: 0;padding: 0px 15px;border: 0;text-align: center;font-size: 20px;font-weight: 600;color: #000;')
     bannerText.textContent = 'HEMEN ÜYE OL, İLK YATIRIMINA';
@@ -118,12 +121,16 @@ async function addPriceCell() {
 }
 
 function createCell(name, price, change) {
+    let options = document.getElementById('dyorexScript');
+    let wstyle = options.getAttribute('data-wstyle').split(',');
+    let utmParams = options.getAttribute('data-utm').split(',');
+
     let pairLogo = name.endsWith('USDT') ? '$' : '₺'
     name = name !== 'USDTTRY' && 'TRYUSDT' ? name.replace('USDT', '').replace('TRY', '') : name.endsWith('USDT') ? 'TRY' : 'USDT'
     let cell = document.createElement('div');
     cell.setAttribute('style', 'width:120px; box-sizing: border-box; padding: 0; flex-shrink: 0; height: 100%; position: relative; transition-property: transform,-webkit-transform; margin: 0 5px 0 0;')
-    let cellInner = document.createElement('a'); cellInner.setAttribute('style', 'box-sizing: border-box; margin: 0; text-decoration: none; display: flex; justify-content: center; align-items: flex-start; flex-direction: column; position: relative; height: 65px; padding: 10px 15px 10px 15px; background-color: #fff; color: #000;')
-    cellInner.setAttribute('href', 'https://www.dyorex.com/markets')
+    let cellInner = document.createElement('a'); cellInner.setAttribute('style', `box-sizing: border-box; margin: 0; text-decoration: none; display: flex; justify-content: center; align-items: flex-start; flex-direction: column; position: relative; height: 65px; padding: 10px 15px 10px 15px; background-color: ${wstyle[0]? wstyle[0] : '#fff' }; color: #000;`)
+    cellInner.setAttribute('href', `https://www.dyorex.com/markets?utm_source=${utmParams[0]}&utm_medium=${utmParams[1]}&utm_campaign=${utmParams[2]}`)
     let nameSpan = document.createElement('span');
     nameSpan.setAttribute('style', 'color: #000; box-sizing: border-box; display: flex; justify-content: flex-start; align-items: center; padding: 2px 0; font-size: 16px; font-weight:700; line-height: 18px;');
     nameSpan.textContent = name;
