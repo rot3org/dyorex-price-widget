@@ -1,7 +1,7 @@
 Sitenizin headır kısmına aşağıda yer alan scripti yerleştiriniz.
 
     <script>
-      (function (w, d, s, l, c, e, u) {
+      (function (w, d, s, l, c, e, u, ws) {
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s);
         j.async = true;
@@ -10,6 +10,7 @@ Sitenizin headır kısmına aşağıda yer alan scripti yerleştiriniz.
         j.setAttribute("data-currency", c ? c : "");
         j.setAttribute("data-exclude", e ? e : "");
         j.setAttribute("data-utm", u ? u : "")
+        j.setAttribute("data-wstyle", ws ? ws : "")
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dyorex", "USDT", "BTTCUSDT", "<site-ismi>,Banner,Price+Banner", "#f5f5f5");
     </script>
