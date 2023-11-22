@@ -20,11 +20,11 @@ daha sonra body kısmında hangi alana gelmesini istiyorsanız o alana aşağıd
     <div id="dyorex-widget"></div>
 
 eğer sitenin üst tarafına sabitlenmesini istiyorsanız, lütfen aşağıdaki elementi kullanınız.
-
+```
   <div style="position: fixed;top: 0;z-index: 99;background: #f7f7f7;" >
     <div id="dyorex-widget"></div>
   </div>
   <div style="height: 65px;"></div>
-
+```
 
 
