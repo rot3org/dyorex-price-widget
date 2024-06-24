@@ -157,14 +157,14 @@ function createCell(name, price, change) {
 }
 
 async function getTickerPrices() {
-    const response = await fetch('https://www.dyorex.com/gateway/api-auth/api-ordermatch/api/v1/public/ticker', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    const result = await response.json();
-    return result.data;
+    // const response = await fetch('https://www.dyorex.com/gateway/api-auth/api-ordermatch/api/v1/public/ticker', {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // });
+    // const result = await response.json();
+    return [];
 }
 
 async function timeController(bannerWidth) {
